@@ -1,0 +1,49 @@
+CALLBACK FUNCTIONS
+
+function funcName(param1,param2){
+
+    //code here
+
+}
+
+const functionInvocation = funcName(1,2)
+
+Callback: passing functions to other functions and invoking them with each other
+This makes code more reusable
+You can write an inline function as a callback (also called an anonymous function)
+
+function outerFunction(callback){
+    console.log(callback())
+
+}
+
+function innerFunction(){
+    return 'test'
+}
+
+outerFunction(innerFunction)
+
+
+foundations21(() => {
+return 'Hello there!'
+}
+)
+
+Higher Order Functions: outer function of a callback (this is a function that takes a function as a parameter or returns a function as the result)
+
+const createAdder = x => (y) => x + y 
+
+const add5 = createAdder(5)
+
+add5(10)
+
+Higher Order Array Methods
+.forEach
+.map
+.filter
+.reduce
+
+Each method accepts a callback function as the parameter
+Callback parameters: element, index, array (up to these 3, element is the only required one)
+
+
