@@ -5,21 +5,23 @@
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
+const multiplyAnonymous = (num3, num4, callback) => callback(num3 * num4);
+
 const multiply = (num1, num2, callback) => {
   return callback(num1, num2);
 };
 
-const multiplyme = (num1, num2) => num1 * num2;
+//const multiplyme = (num1, num2) => num1 * num2;
 
-// console.log(multiply(4, 5, multiplyme));
+// console.log(multiplyAnonymous(4, 5, multiplyme));
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// multiply(4, 3, answer => {
-// console.log('The answer is ' + answer) //should console.log 12
-// })
+multiplyAnonymous(4, 3, (answer) => {
+  console.log("The answer is " + answer); //should console.log 12
+});
 
 ////////// PROBLEMS 2 - 6 //////////
 
@@ -127,7 +129,7 @@ const uniq = (arr, callback) => {
 const test = uniq(names, (uniqArr) => {
   return `The new names array with all the duplicate items removed is ${uniqArr}`;
 });
-//console.log(test);
+console.log(test);
 ////////// PROBLEM 6 //////////
 
 /* 
@@ -150,10 +152,11 @@ const each = (arr, cb) => arr.forEach((element, index) => cb(element, index));
   'The item at index [INDEXPARAM] is [ITEMPARAM].'
 */
 
-const location = each(
-  names,
-  (element, index) => `The item at index is ${index} is ${element}.`
+each(names, (element, index) =>
+  console.log(`The item at index ${index} is ${element}`)
 );
+
+// console.log(location)
 
 // const location = (name, index) => {
 //   return `The item at index ${index} is ${name}`;
@@ -229,9 +232,12 @@ const getUserById = (user, id, callback) => {
   the two parameters together and return the sum.
 */
 
+//single line higher order function
+
 const addingFactory = (x) => (y) => x + y;
 
 const add5 = addingFactory(5);
+console.log(add5(5));
 /*
   Now that you have addingFactory, you can create other
   functions from it. 
